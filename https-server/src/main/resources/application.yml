@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /api
+  ssl:
+    key-alias: localhost
+    key-store-type: PKCS12
+    # .jks and password are stored in the repo only for the study purposes
+    key-store: classpath:keystore/localhost.jks
+    key-store-password: password
+    enabled: true

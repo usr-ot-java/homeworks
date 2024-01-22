@@ -1,3 +1,5 @@
 rootProject.name = 'otus-project'
 
 include 'hw01-gradle'
+include 'https-server'
+include 'https-client'
