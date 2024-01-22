@@ -1,0 +1,10 @@
+spring:
+  main:
+    web-application-type: none
+
+client:
+  uri: https://localhost:8080/api/hello
+  ssl:
+    # .jks and password are stored in the repo only for the study purposes
+    trust-store: classpath:keystore/localhost.jks
+    trust-store-password: password
