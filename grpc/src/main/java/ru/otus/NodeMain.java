@@ -18,15 +18,15 @@ import java.util.Objects;
 public class NodeMain {
     public static void main(String[] args) throws InterruptedException, IOException {
         String selfHost = System.getProperty("node.host", "127.0.0.1");
-        int selfPort = Integer.parseInt(Objects.requireNonNull(System.getProperty("node.port")));
+        int selfPort = Integer.parseInt(System.getProperty("node.port", "9000"));
         NodeInfo selfNode = new NodeInfo(selfHost, selfPort);
 
         Server server = ServerBuilder.forPort(selfPort)
                 .addService(new Node(selfNode))
                 .build();
 
-        String balancerAddr = Objects.requireNonNull(System.getProperty("balancer.host"));
-        int balancerPort = Integer.parseInt(Objects.requireNonNull(System.getProperty("balancer.port")));
+        String balancerAddr = System.getProperty("balancer.host", "127.0.0.1");
+        int balancerPort = Integer.parseInt(System.getProperty("balancer.port", "8080"));
 
         ManagedChannel channel = ManagedChannelBuilder
                 .forAddress(balancerAddr, balancerPort)

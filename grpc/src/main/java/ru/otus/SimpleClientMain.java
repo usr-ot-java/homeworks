@@ -13,8 +13,8 @@ import java.util.UUID;
 @Slf4j
 public class SimpleClientMain {
     public static void main(String[] args) {
-        String balancerAddr = Objects.requireNonNull(System.getProperty("balancer.host"));
-        int balancerPort = Integer.parseInt(Objects.requireNonNull(System.getProperty("balancer.port")));
+        String balancerAddr = System.getProperty("balancer.host", "127.0.0.1");
+        int balancerPort = Integer.parseInt(System.getProperty("balancer.port", "8080"));
 
         ManagedChannel channel = ManagedChannelBuilder
                 .forAddress(balancerAddr, balancerPort)
